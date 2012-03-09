@@ -18,4 +18,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/device_robyn.mk
+    $(LOCAL_DIR)/device_mimmi.mk

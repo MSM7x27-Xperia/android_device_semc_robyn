@@ -1,6 +1,6 @@
 #!/bin/sh
 
-VENDOR=SEMC
+VENDOR=semc
 DEVICE=robyn
 OUTDIR=vendor/$VENDOR/$DEVICE
 MAKEFILE=../../../$OUTDIR/$DEVICE-vendor-blobs.mk

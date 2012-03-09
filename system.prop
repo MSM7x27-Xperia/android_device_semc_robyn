@@ -9,11 +9,10 @@ ro.telephony.default_network=0
 ro.telephony.call_ring.multiple=false
 ro.ril.hsxpa=1
 ro.ril.gprsclass=10
-ro.ril.def.agps.mode=2
 
 # Wlan
 wifi.interface=tiwlan0
-wifi.supplicant_scan_interval=45
+wifi.supplicant_scan_interval=15
 
 # Performance
 debug.composition.type=mdp
@@ -26,7 +25,7 @@ media.stagefright.enable-player=false
 
 # LCD
 ro.sf.hwrotation=1
-ro.sf.lcd_density=100
+ro.sf.lcd_density=105
 ro.opengles.version=131072
 
 # USB
@@ -37,3 +36,7 @@ ro.tether.denied=true
 dalvik.vm.heapsize=32m
 dalvik.vm.execution-mode=int:jit
 dalvik.vm.dexopt-data-only=1
+
+# GPS
+ro.ril.def.agps.mode=2
+ro.ril.def.agps.feature=1

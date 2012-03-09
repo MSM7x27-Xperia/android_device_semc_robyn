@@ -13,18 +13,31 @@
 # limitations under the License.
 
 
-LOCAL_PATH:= $(call my-dir)
-# HAL module implemenation, not prelinked and stored in
-# hw/<COPYPIX_HARDWARE_MODULE_ID>.<ro.board.platform>.so
+LOCAL_PATH := $(call my-dir)
 
+# HAL module implemenation, not prelinked and stored in
+# hw/<OVERLAY_HARDWARE_MODULE_ID>.<ro.product.board>.so
 include $(CLEAR_VARS)
 LOCAL_PRELINK_MODULE := false
-LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
-LOCAL_SHARED_LIBRARIES := liblog
-LOCAL_SRC_FILES := copybit.cpp
-LOCAL_MODULE := copybit.delta
-LOCAL_C_INCLUDES += hardware/msm7k/libgralloc
-LOCAL_CFLAGS += -DCOPYBIT_MSM7K=1
 LOCAL_MODULE_TAGS := optional
-include $(BUILD_SHARED_LIBRARY)
+LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
+LOCAL_SHARED_LIBRARIES := liblog libcutils libGLESv1_CM
 
+LOCAL_SRC_FILES := 	\
+	allocator.cpp 	\
+	framebuffer.cpp \
+	gpu.cpp			\
+	gralloc.cpp		\
+	mapper.cpp		\
+	pmemalloc.cpp
+	
+LOCAL_MODULE := gralloc.delta
+LOCAL_CFLAGS:= -DLOG_TAG=\"$(TARGET_BOARD_PLATFORM).gralloc\"
+
+LOCAL_CFLAGS += -DTARGET_MSM7x27
+
+
+ifeq ($(TARGET_GRALLOC_USES_ASHMEM),true)
+LOCAL_CFLAGS += -DUSE_ASHMEM
+endif
+include $(BUILD_SHARED_LIBRARY)

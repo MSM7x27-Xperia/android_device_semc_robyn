@@ -88,10 +88,8 @@ enum {
 	MDP_RGBA_8888,    /* ARGB 888 */
 	MDP_BGRA_8888,	  /* ABGR 888 */
 	MDP_RGBX_8888,	  /* RGBX 888 */
-#ifdef CONFIG_MSM_MDP40
 	MDP_Y_CRCB_H2V2_TILE,  /* Y and CrCb, pseudo planer tile */
 	MDP_Y_CBCR_H2V2_TILE,  /* Y and CbCr, pseudo planer tile */
-#endif
 	MDP_Y_CR_CB_H2V2,  /* Y, Cr and Cb, planar */
 	MDP_Y_CR_CB_GH2V2,  /* Y, Cr and Cb, planar aligned to Android YV12 */
 	MDP_Y_CB_CR_H2V2,  /* Y, Cb and Cr, planar */
@@ -170,6 +168,7 @@ struct mdp_img {
 	uint32_t format;
 	uint32_t offset;
 	int memory_id;		/* the file descriptor */
+	uint32_t priv;
 };
 
 /*
@@ -212,6 +211,7 @@ struct mdp_blit_req {
 	uint32_t alpha;
 	uint32_t transp_mask;
 	uint32_t flags;
+	int sharpening_strength;  /* -127 <--> 127, default 64 */
 };
 
 struct mdp_blit_req_list {
@@ -225,8 +225,8 @@ struct msmfb_data {
 	uint32_t offset;
 	int memory_id;
 	int id;
-//	uint32_t flags;
-//	uint32_t priv;
+	uint32_t flags;
+	uint32_t priv;
 };
 
 #define MSMFB_NEW_REQUEST -1
