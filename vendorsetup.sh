@@ -19,4 +19,3 @@
 # function: add_lunch_combo generic-eng
 
 add_lunch_combo cm_robyn-eng
-add_lunch_combo cm_robyn-userdebug
