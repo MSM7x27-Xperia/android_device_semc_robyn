@@ -3,8 +3,8 @@
 #
 # RIL
 rild.libpath=/system/lib/libsemc_ril.so
-rild.libargs=-d /dev/smd0
-ro.telephony.ril.v3=icccardstatus,datacall,signalstrength,facilitylock
+rild.libargs=-d/dev/smd0
+ro.telephony.ril.v3=icccardstatus,signalstrength
 ro.telephony.default_network=0
 ro.telephony.call_ring.multiple=false
 ro.ril.hsxpa=1
@@ -13,24 +13,25 @@ ro.ril.gprsclass=10
 # Wlan
 wifi.interface=tiwlan0
 wifi.supplicant_scan_interval=15
+wifi.hotspot.ti=1
+
+# Media
+ro.media.dec.jpeg.memcap=10000000
 
 # Performance
 debug.composition.type=mdp
 debug.performance.tuning=1
 debug.sf.hw=1
-video.accelerate.hw=1
 ro.compcache.default=0
-ro.media.dec.jpeg.memcap=10000000
-media.stagefright.enable-player=false
+video.accelerate.hw=1
+persist.sys.use_16bpp_alpha=1
 
 # LCD
-ro.sf.hwrotation=1
-ro.sf.lcd_density=105
+ro.sf.lcd_density=120
 ro.opengles.version=131072
 
 # USB
 persist.sys.usb.config=mass_storage,adb
-ro.tether.denied=true
 
 # Dalvik tweaks
 dalvik.vm.heapsize=32m

@@ -45,19 +45,18 @@ namespace android_audio_legacy {
 #define SAMP_RATE_INDX_32000	6
 #define SAMP_RATE_INDX_44100	7
 #define SAMP_RATE_INDX_48000	8
-#define SAMP_RATE_INDX_64000	9
-#define SAMP_RATE_INDX_96000	10
+#define SAMP_RATE_INDX_96000	9
 
 #define EQ_MAX_BAND_NUM 12
 
 #define ADRC_ENABLE  0x0001
-#define ADRC_DISABLE 0xFFFE
+#define ADRC_DISABLE 0x0000
 #define EQ_ENABLE    0x0002
-#define EQ_DISABLE   0xFFFD
+#define EQ_DISABLE   0x0000
 #define RX_IIR_ENABLE  0x0004
-#define RX_IIR_DISABLE 0xFFFB
+#define RX_IIR_DISABLE 0x0000
 #define MBADRC_ENABLE  0x0010
-#define MBADRC_DISABLE 0xFFEF
+#define MBADRC_DISABLE 0x0000
 
 #define AGC_ENABLE     0x0001
 #define NS_ENABLE      0x0002
@@ -167,9 +166,6 @@ public:
 
     virtual status_t    setVoiceVolume(float volume);
     virtual status_t    setMasterVolume(float volume);
-#ifdef HAVE_FM_RADIO
-    virtual status_t    setFmVolume(float volume);
-#endif
     virtual status_t    setMode(int mode);
 
     // mic mute
@@ -214,9 +210,6 @@ private:
     uint32_t    getInputSampleRate(uint32_t sampleRate);
     bool        checkOutputStandby();
     status_t    doRouting(AudioStreamInMSM72xx *input);
-#ifdef HAVE_FM_RADIO
-    status_t    setFmOnOff(bool onoff);
-#endif
     AudioStreamInMSM72xx*   getActiveInput_l();
 
     class AudioStreamOutMSM72xx : public AudioStreamOut {
@@ -243,8 +236,8 @@ private:
         virtual String8     getParameters(const String8& keys);
                 uint32_t    devices() { return mDevices; }
         virtual status_t    getRenderPosition(uint32_t *dspFrames);
-        virtual status_t    addAudioEffect(effect_handle_t effect) {return INVALID_OPERATION;}
-        virtual status_t    removeAudioEffect(effect_handle_t effect) {return INVALID_OPERATION;}
+        virtual status_t    addAudioEffect(effect_handle_t effect){return INVALID_OPERATION;}
+        virtual status_t    removeAudioEffect(effect_handle_t effect){return INVALID_OPERATION;}
 
     private:
                 AudioHardware* mHardware;
@@ -284,8 +277,8 @@ private:
         virtual unsigned int  getInputFramesLost() const { return 0; }
                 uint32_t    devices() { return mDevices; }
                 int         state() const { return mState; }
-        virtual status_t    addAudioEffect(effect_handle_t effect) {return INVALID_OPERATION;}
-        virtual status_t    removeAudioEffect(effect_handle_t effect) {return INVALID_OPERATION;}
+        virtual status_t    addAudioEffect(effect_handle_t effect){return INVALID_OPERATION;}
+        virtual status_t    removeAudioEffect(effect_handle_t effect){return INVALID_OPERATION;}
 
     private:
                 AudioHardware* mHardware;
@@ -312,11 +305,7 @@ private:
             msm_snd_endpoint *mSndEndpoints;
             int mNumSndEndpoints;
             int mCurSndDevice;
-	    int mFmRadioEnabled;
-	    int mFmPrev;
-	    int mFmVolume;
             int m7xsnddriverfd;
-            int fmfd;
             bool        mDualMicEnabled;
             int         mTtyMode;
 

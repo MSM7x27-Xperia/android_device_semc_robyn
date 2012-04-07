@@ -42,9 +42,9 @@
 		_IOW(MSM_ROTATOR_IOCTL_MAGIC, 3, int)
 
 enum rotator_clk_type {
-	ROTATOR_AXICLK_CLK,
-	ROTATOR_PCLK_CLK,
-	ROTATOR_IMEMCLK_CLK
+	ROTATOR_AXI_CLK,
+	ROTATOR_PCLK,
+	ROTATOR_IMEM_CLK
 };
 
 struct msm_rotator_img_info {
