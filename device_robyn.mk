@@ -100,12 +100,6 @@ PRODUCT_PACKAGES += \
     libmm-omxcore \
     libopencorehw
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.goo.developerid=paul-xxx \
-    ro.goo.rom=CM9-OXP \
-    ro.goo.version=002 \
-    ro.goo.board=robyn
-
 PRODUCT_LOCALES += mdpi
 
 # we have enough storage space to hold precise GC data

@@ -1,5 +1,4 @@
 app/AntHalService.apk
-app/GooManager.apk
 app/Torch.apk
 bin/akmd2
 bin/hciattach
