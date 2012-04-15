@@ -1,4 +1,3 @@
-app/AntHalService.apk
 app/Torch.apk
 bin/akmd2
 bin/hciattach
@@ -16,7 +15,6 @@ etc/firmware/fm_tx_init_1273.2.bts
 etc/firmware/TIInit_7.2.31.bts
 etc/firmware/yamato_pfp.fw
 etc/firmware/yamato_pm4.fw
-etc/permissions/com.dsi.ant.antradio_library.xml
 etc/semc/chargemon/anim1.rle
 etc/semc/chargemon/anim2.rle
 etc/semc/chargemon/anim3.rle
@@ -27,7 +25,6 @@ etc/semc/chargemon/anim7.rle
 etc/semc/chargemon/anim8.rle
 etc/hw_config.sh
 etc/sensors.conf
-framework/com.dsi.ant.antradio_library.jar
 lib/egl/eglsubAndroid.so
 lib/egl/libEGL_adreno200.so
 lib/egl/libGLES_android.so
@@ -36,7 +33,6 @@ lib/egl/libGLESv2_adreno200.so
 lib/egl/libq3dtools_adreno200.so
 lib/hw/lights.robyn.so
 lib/hw/sensors.delta.so
-lib/libanthal.so
 lib/libauth.so
 lib/libC2D2.so
 lib/libcamera.so
