@@ -25,6 +25,7 @@ debug.sf.hw=1
 ro.compcache.default=0
 video.accelerate.hw=1
 persist.sys.use_16bpp_alpha=1
+persist.sys.use_dithering=1
 
 # LCD
 ro.sf.lcd_density=120
