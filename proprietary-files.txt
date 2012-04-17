@@ -1,10 +1,13 @@
 app/Torch.apk
 bin/akmd2
+bin/chargemon
 bin/hciattach
+bin/inputattach
 bin/nvimport
 bin/port-bridge
 bin/qmuxd
 bin/semc_chargalg
+bin/slidercounter
 bin/updatemiscta
 etc/firmware/fmc_init_1273.1.bts
 etc/firmware/fmc_init_1273.2.bts
@@ -66,6 +69,7 @@ lib/libOmxMp3Dec.so
 lib/libOmxMpeg4Dec.so
 lib/libOmxQcelp13Enc.so
 lib/libOmxQcelpDec.so
+lib/libOmxVidEnc.so
 lib/libOmxWmaDec.so
 lib/libOmxWmvDec.so
 lib/liboncrpc.so
